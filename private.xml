@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<root>
+    <inputsourcedef>
+        <name>SBMAXX_RUPC</name>
+        <inputsourceid_prefix>com.apple.keylayout.RussianWin</inputsourceid_prefix>
+    </inputsourcedef>
+    <item>
+        <name>Back Ё key</name>
+        <identifier>private.back_ee_key</identifier>
+        <autogen>__KeyToKey__ KeyCode::BACKQUOTE, KeyCode::RUSSIAN_PARAGRAPH</autogen>
+        <inputsource_only>SBMAXX_RUPC</inputsource_only>
+        <inputsourceid_prefix>com.apple.keylayout.RussianWin</inputsourceid_prefix>
+    </item>
+</root>
