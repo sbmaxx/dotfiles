@@ -18,4 +18,5 @@ fi
 
 alias ls='ls ${LS_OPTS}'
 
+ssh-add
 alias mount-daywatch='mount -t nfs 192.168.1.2:/d ~/mount/daywatch'
