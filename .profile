@@ -19,4 +19,10 @@ fi
 alias ls='ls ${LS_OPTS}'
 
 ssh-add
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+## home
 alias mount-daywatch='mount -t nfs 192.168.1.2:/d ~/mount/daywatch'
