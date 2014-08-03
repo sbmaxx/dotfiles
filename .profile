@@ -6,10 +6,13 @@ export LC_ALL=en_US.UTF-8
 export HISTFILE=~/.bash_history-`tty | sed -e 's/\/dev\///'`
 export HISTCONTROL=ignoreboth
 
+export PATH=${PATH}:/usr/local/bin/atom
 export PATH=${PATH}:/usr/local/share/npm/bin
 export PATH=${PATH}:/usr/local/lib/node_modules/
 
 export EDITOR=vim
+
+alias f='open -a Finder ./'
 
 ## Bash Completetion. brew install bash-copmpletion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
