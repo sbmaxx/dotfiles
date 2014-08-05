@@ -14,10 +14,13 @@ export EDITOR=vim
 
 alias f='open -a Finder ./'
 
-## Bash Completetion. brew install bash-copmpletion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+if which brew >/dev/null; then
+    ## Bash Completetion. brew install bash-copmpletion
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
 fi
+
 
 platform='unknown'
 unamestr=`uname`
@@ -28,8 +31,6 @@ elif [[ "$unamestr" == 'FreeBSD' ]]; then
 elif [[ "$unamestr" == 'Darwin' ]]; then
     platform='macos'
 fi
-
-echo $platform $unamestr
 
 if [[ $platform == 'linux' ]]; then
     export LS_OPTS='--color'
