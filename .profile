@@ -19,11 +19,24 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
-if [[ $platform == 'linux' ]]; then
-   export LS_OPTS='-G'
-elif [[ $platform == 'freebsd' ]]; then
-   export LS_OPTS='--color=auto'
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+    platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+    platform='freebsd'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+    platform='macos'
 fi
+
+echo $platform $unamestr
+
+if [[ $platform == 'linux' || $platform == 'macos' ]]; then
+    export LS_OPTS='-G'
+elif [[ $platform == 'freebsd' ]]; then
+    export LS_OPTS='--color=auto'
+fi
+
 alias ls='ls ${LS_OPTS}'
 
 ## ssh-agent identity
