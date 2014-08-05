@@ -31,7 +31,9 @@ fi
 
 echo $platform $unamestr
 
-if [[ $platform == 'linux' || $platform == 'macos' ]]; then
+if [[ $platform == 'linux' ]]; then
+    export LS_OPTS='--color'
+elif [[ $platform == 'macos' ]]; then
     export LS_OPTS='-G'
 elif [[ $platform == 'freebsd' ]]; then
     export LS_OPTS='--color=auto'
