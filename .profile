@@ -13,6 +13,7 @@ export PATH=${PATH}:/usr/local/lib/node_modules/
 export EDITOR=vim
 
 alias f='open -a Finder ./'
+alias wake='wake-on-lan 50:46:5D:A0:9A:D7'
 
 if which brew >/dev/null; then
     ## Bash Completetion. brew install bash-copmpletion
