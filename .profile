@@ -67,3 +67,8 @@ unmountsshfs()
 
 ## home
 alias mount-daywatch='mount -t nfs 192.168.1.2:/d ~/mount/daywatch'
+
+export NVM_DIR="/Users/sbmaxx/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+nvm use v0.12.9
