@@ -45,5 +45,25 @@ alias ls='ls ${LS_OPTS}'
 ## ssh-agent identity
 ssh-add
 
+## sshfs
+# подмаунтить jail
+# используется http://osxfuse.github.com/
+mountsshfs()
+{
+    JAIL=${1:-"yandex.ru"}
+    FOLDER=${2:-"/home/$USER"}
+    echo -e "\033[33m===> MOUNT JAIL: \033[31m$JAIL \033[0m"
+    mkdir -p /mount/$JAIL
+    unmountsshfs $JAIL
+    sshfs $USER@$JAIL:$FOLDER /mount/$JAIL -oauto_cache,reconnect,volname=$1
+}
+
+# размаунтить джейл
+unmountsshfs()
+{
+    JAIL=${1:-"yandex.ru"}
+    umount /mount/$1 >/dev/null
+}
+
 ## home
 alias mount-daywatch='mount -t nfs 192.168.1.2:/d ~/mount/daywatch'
