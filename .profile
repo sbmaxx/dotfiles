@@ -6,9 +6,11 @@ export LC_ALL=en_US.UTF-8
 export HISTFILE=~/.bash_history-`tty | sed -e 's/\/dev\///'`
 export HISTCONTROL=ignoreboth
 
+export PATH=${PATH}:bin
 export PATH=${PATH}:/usr/local/bin/atom
 export PATH=${PATH}:/usr/local/share/npm/bin
 export PATH=${PATH}:/usr/local/lib/node_modules/
+
 
 export EDITOR=vim
 
@@ -72,4 +74,5 @@ alias mount-daywatch='mount -t nfs 192.168.1.2:/d ~/mount/daywatch'
 export NVM_DIR="/Users/sbmaxx/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+export NODE_PATH=./node_modules:$NODE_PATH
 nvm use v0.12.9
