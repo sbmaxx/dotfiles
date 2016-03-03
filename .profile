@@ -74,5 +74,7 @@ alias mount-daywatch='mount -t nfs 192.168.1.2:/d ~/mount/daywatch'
 export NVM_DIR="/Users/sbmaxx/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+export PATH=./node_modules/.bin:$PATH
+export PATH=~/node_modules/.bin:$PATH
 export NODE_PATH=./node_modules:$NODE_PATH
-nvm use v0.12.9
+nvm use v4.3.0
