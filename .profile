@@ -6,11 +6,9 @@ export LC_ALL=en_US.UTF-8
 export HISTFILE=~/.bash_history-`tty | sed -e 's/\/dev\///'`
 export HISTCONTROL=ignoreboth
 
-export PATH=${PATH}:bin
 export PATH=${PATH}:/usr/local/bin/atom
 export PATH=${PATH}:/usr/local/share/npm/bin
 export PATH=${PATH}:/usr/local/lib/node_modules/
-
 
 export EDITOR=vim
 
@@ -44,6 +42,8 @@ elif [[ $platform == 'freebsd' ]]; then
 fi
 
 alias ls='ls ${LS_OPTS}'
+alias ss='open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app'
+alias ll='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 
 ## ssh-agent identity
 ssh-add
@@ -68,13 +68,20 @@ unmountsshfs()
     umount /mount/$1 >/dev/null
 }
 
+tunnel-mongo()
+{
+    ssh -N $1 -L 9999:localhost:27017
+}
+
 ## home
 alias mount-daywatch='mount -t nfs 192.168.1.2:/d ~/mount/daywatch'
 
 export NVM_DIR="/Users/sbmaxx/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export PATH=./node_modules/.bin:$PATH
-export PATH=~/node_modules/.bin:$PATH
-export NODE_PATH=./node_modules:$NODE_PATH
 nvm use v4.3.0
+export NODE_PATH=$NODE_PATH:`npm root -g`:./node_modules
+
+export PATH=$PATH:./node_modules/.bin
+export PATH=$PATH:~/node_modules/.bin
+export PATH=~/bin:${PATH}
+export PATH=${PATH}:bin
